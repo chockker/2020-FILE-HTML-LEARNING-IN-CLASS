@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>แบบฟอร์มจองทัวร์</title>
+</head>
+<body>
+    <h1>แบบฟอร์มจองทัวร์</h1>
+    <p><b>ข้อมูลทั่วไป</b></p>
+    <form method="post" action="form-echo.php">
+        ชื่อ-สกุล:<br>
+        <input type="text" name="falname" placeholder="กรอกชื่อ-สกุล" required>*<br>
+        email:<br>
+        <input type="email" name="email">*<br>
+        โทรศัพท์:<br>
+        <input type="text" name="tel" value="+66">*<br>
+        ที่อยู่:<br>
+        <textarea name="address" cols="40" rows="4"></textarea><br> 
+        รหัสไปรษณีย์:
+        <input type="text" name="passcode" size="5" maxlength="5"><br>
+        รูปผู้จอง:
+        <button>Choose File</button>no file chosen<br>
+
+    </form> 
+
+    <p><b>ข้อมูลเข้าสู่ระบบ</b></p>
+    <form action="somefile.php"> 
+            Username:<br>
+            <input type="text" name="username" pattern="required [a-z]{8,15}" required><br>
+            <i>ประกอบด้วยตัวเลข ตัวอักษรหรือ_ตั้งแต่ 8 ตัวขึ้นไป</i><br>
+             Password:<br>
+            <input type="password" name="password" required><br>  
+            <i>ประกอบอักขระอะไรก็ได้ 8 ตัวขึ้นไป</i><br>
+
+    </form>
+
+    <p><b>ข้อมูลทัวร์ที่ต้องการ</b></p>
+    <form method="post" action="form-echo.php">
+        แพคเก็จทัวร์:
+        <select required>
+                <option value="">--Select--</option>
+                <option>France</option>
+                <option>Canada</option>
+                <option>Japan</option>
+            </select><br>
+        วันที่เดินทาง:
+        <input type="date" min="2020-08-03" max="2020-21-31" required><br>
+        จำนวนผู้เดินทาง:
+        <input type="text" name="people" pattern="[1-10]" required><br>
+        เน้นการท่องเที่ยวแบบใด?:<br>
+        <input type="checkbox" name="trip" value="shopping"/>ชอปปิ้ง<br>
+        <input type="checkbox" name="trip" value="nature"/>ธรรมชาติ<br>
+        <input type="checkbox" name="trip" value="sea"/>ทะเล<br>
+
+        ยอมรับเงื่อนไขและข้อตกลง:
+        <input type="radio" name="ag" value="0"/>I argee&nbsp;&nbsp;
+        <input type="radio" name="ag" value="1"/>I disargee&nbsp;&nbsp;
+        <button>จอง</button>    
+    </form>
+
+</body>
+</html>

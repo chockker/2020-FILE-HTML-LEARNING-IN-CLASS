@@ -1,0 +1,29 @@
+<html>
+    <head>
+            <meta charset="UTF-8">
+        <script>
+            async function getDataFromAPI() {
+                let response = await fetch('http://202.44.40.193/~aws/priv_hos.json')
+                let rawData = await response.text() // อ่านผลลพธั ์
+                let objectData = JSON.parse(rawData) // แปลผลลพธั ์เป็น object
+                let result = document.getElementById('result') // ดึง <ul> เพื่อใช้ในการเพิ่มแท็่ก <li>
+
+                for (let i = 0; i < objectData.features.length; i++) {
+                    let content = 'ชื่อโรงพยาบาล' + objectData.features[i].properties.name + ': ' // ดึงข้อมูลจาก object
+                    content += 'ที่อยู่'+objectData.features[i].properties.address + ': '
+                    content += 'tel'+objectData.features[i].properties.tel + ': '
+                    content += 'tel'+objectData.features[i].properties.num_bed + ': '
+                    
+                    let li = document.createElement('li') // สร้างแทก็ <li>
+                    li.innerHTML = content // นําข้อมูลทจี่ ัดแล้วมาไว้ในแทกก็ <li>
+                    result.appendChild(li) // เพมแท ิ่ ก็ <li> ใหม่
+                }
+            }
+            getDataFromAPI() // เรียกฟังก์ชัน
+        </script>
+    </head>
+    <body>
+        
+        <ul id="result"></ul>
+    </body>
+</html>
